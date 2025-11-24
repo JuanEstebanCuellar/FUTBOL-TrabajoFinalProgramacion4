@@ -1,26 +1,37 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
-# React + Vite
+** 📘 Dashboard de Jugadores – Trabajo Final Programación 4 **
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Proyecto final desarrollado en React + Vite, basado en el examen asignado por el profesor (Versión Fútbol).
+Incluye todas las funcionalidades requeridas: búsqueda con debounce, paginación dinámica, ordenamiento, modo oscuro, favoritos, historial, modal y estadísticas en tiempo real.
 
-Currently, two official plugins are available:
+🔗 Deploy en Netlify: (pendiente)
+🔗 Repositorio: https://github.com/JuanEstebanCuellar/FUTBOL-TrabajoFinalProgramacion4.git
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+* 👨‍💻 Integrantes: *
+-Juan Esteban Cuellar
+-Abraham David Zea
+-Juan Manuel Largo
 
-## React Compiler
+🧠 IA utilizada para asistencia técnica: ChatGPT (OpenAI GPT-5.1) – solo como apoyo, no para reemplazar el desarrollo.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+* 🚀 Tecnologías Utilizadas: *
+* 
+-React
+-Vite
+-JavaScript
+-HTML5
+-CSS3 (metodología BEM)
+-GitHub
+-Netlify (Deploy)
 
-## Expanding the ESLint configuration
+📦 Instalación del Proyecto
+1️⃣ Clonar el repositorio
+git clone https://github.com/JuanEstebanCuellar/TrabajoFinal-Futbol-Programacion4.git
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
-=======
-# TrabajoFinal-Futbol-Programacion4
-Este repositorio contiene los archivos correspondientes al trabajo final de la asignatura Programación 4. El desarrollo y la implementación presentados corresponden al examen 1 (Futbol), elaborados conforme a los lineamientos establecidos por el docente.
->>>>>>> 469c9691e47db3ed3a71b299ada8996c9cbb5083
-=======
-# FUTBOL-TrabajoFinalProgramacion4
-Este repositorio contiene los archivos correspondientes al trabajo final de la asignatura Programación 4. El desarrollo y la implementación presentados corresponden al examen 1 (Futbol), elaborados conforme a los lineamientos establecidos por el docente.
->>>>>>> df8ea8d23faaf15ea0bb529fc7b6afaccf1f969b
+2️⃣ Entrar a la carpeta del proyecto
+cd PaginaFutbolTrabajoFinal
+
+3️⃣ Instalar dependencias
+npm install
+
+4️⃣ Ejecutar el proyecto en modo desarrollo
+npm run dev
