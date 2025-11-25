@@ -1,5 +1,5 @@
 import React from 'react';
-import './PlayerRow.css';
+import '../styles/PlayerRow.css';
 
 const PlayerRow = ({ 
   player, 

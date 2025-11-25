@@ -1,4 +1,5 @@
 import React from 'react';
+import '../styles/SearchHistory.css';
 
 function SearchHistory({ history, onSelect, onClear }) {
   if (!history || history.length === 0) return null;

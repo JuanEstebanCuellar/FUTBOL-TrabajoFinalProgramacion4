@@ -1,4 +1,5 @@
 import React from 'react';
+import '../styles/Modal.css';
 
 function Modal({ isOpen, onClose, player, darkMode }) {
   if (!isOpen || !player) return null;

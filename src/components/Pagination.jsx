@@ -1,4 +1,5 @@
 import React from 'react';
+import '../styles/Pagination.css';
 
 function Pagination({ currentPage, totalPages, onPageChange, itemsPerPage, onItemsPerPageChange }) {
   var numTotalPages = Number(totalPages);
