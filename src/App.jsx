@@ -73,14 +73,16 @@ function App() {
   }, []);
 
   // Guardar darkMode
-  useEffect(function() {
-    localStorage.setItem('darkMode', JSON.stringify(darkMode));
+  useEffect(() => {
+    try { localStorage.setItem('darkMode', JSON.stringify(darkMode)); } catch {}
     if (darkMode) {
       document.body.classList.add('dark-mode');
       document.body.classList.remove('light-mode');
+      document.documentElement.style.setProperty('--app-bg', '#0f0f10');
     } else {
       document.body.classList.add('light-mode');
       document.body.classList.remove('dark-mode');
+      document.documentElement.style.setProperty('--app-bg', '#ffffff');
     }
   }, [darkMode]);
 
@@ -262,7 +264,7 @@ function App() {
           isOpen={isModalOpen}
           onClose={function() { setIsModalOpen(false); }}
           player={selectedPlayer}
-          darkMode={darkMode}
+/*           darkMode={darkMode} */
         />
       </div>
     </div>

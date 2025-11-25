@@ -15,11 +15,12 @@
 
 /* HEADER GLOBAL */
 .app__header {
+  width: 100%;
   background: linear-gradient(135deg, var(--primary-orange) 0%, #0a0a0a 100%);
   color: white;
   padding: 1.5rem 2rem;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-  border-radius: 15px;
+  box-shadow: 0 4px 12px rgb(226, 80, 8);
+  border-radius: 10px;
 }
 
 .app__header-content {
@@ -88,14 +89,9 @@
 }
 
 .app-wrapper {
-  width: 100%;
-  min-height: 100vh;
   display: flex;
   justify-content: center; /* centra el contenido horizontal */
   align-items: flex-start; /* si quieres centrar vertical cambia a center */
-  padding: var(--app-padding, 40px);
-  box-sizing: border-box;
-  background: transparent;
 }
 
 .app-content {
@@ -110,4 +106,15 @@
 /* Asegura que header, controles y paneles ocupen todo el ancho del content */
 .app-content > * {
   width: 100%;
+}
+
+/* Forzar transparencia en los contenedores principales */
+.app-wrapper,
+.app-content,
+.app__main,
+.player-table-container,
+.search-section,
+.control-panel,
+.stats-dashboard {
+  background: transparent !important;
 }
