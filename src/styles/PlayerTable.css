@@ -1,0 +1,67 @@
+.player-table-container {
+  background: white;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 10px 10px rgba(255, 140, 63, 0.823);
+  margin-bottom: 1.5rem;
+  overflow-x: auto;
+}
+
+.player-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+}
+
+.player-table thead {
+  background: var(--dark-gray);
+  color: white;
+  font-weight: 700;
+}
+
+.player-table th {
+  padding: 1rem 0.8rem;
+  text-align: left;
+  font-size: 0.8rem;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  border-bottom: 3px solid var(--yellow);
+  cursor: pointer;
+  user-select: none;
+  transition: background 0.3s;
+  position: relative;
+}
+
+.player-table th:hover.sortable {
+  background: rgba(255, 140, 66, 0.2);
+}
+
+.player-table td {
+  padding: 0.95rem 0.8rem;
+  border-bottom: 1px solid #eee;
+  color: var(--text-dark);
+}
+
+.player-table tbody tr {
+  transition: all 0.3s;
+  cursor: pointer;
+}
+
+.player-table tbody tr:hover {
+  background: #f9f9f9;
+}
+
+.row-colored {
+  background: rgba(255, 140, 66, 0.08);
+}
+
+/* RESPONSIVE TABLE */
+@media (max-width: 480px) {
+  .player-table {
+    font-size: 0.8rem;
+  }
+  .player-table th,
+  .player-table td {
+    padding: 0.6rem 0.4rem;
+  }
+}

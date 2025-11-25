@@ -1,42 +1,99 @@
-#root {
-  max-width: 1280px;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --primary-orange: #ff8c42;
+  --dark-gray: #2c3e50;
+  --light-gray: #ecf0f1;
+  --yellow: #f1c40f;
+  --text-dark: #2c3e50;
+  --text-light: #7f8c8d;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f0f0f0;
+  color: var(--text-dark);
+}
+
+body.dark-mode {
+  background-color: #1a1a1a;
+  color: #e0e0e0;
+}
+
+/* HEADER GLOBAL */
+.app__header {
+  background: linear-gradient(135deg, var(--primary-orange) 0%, #0a0a0a 100%);
+  color: white;
+  padding: 1.5rem 2rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  border-radius: 15px;
+}
+
+.app__header-content {
+  max-width: 1400px;
   margin: 0 auto;
-  padding: 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: rgb(255, 255, 255);
+}
+
+.app__header-left h1 {
+  font-size: 2rem;
+  margin-bottom: 0.3rem;
+  font-weight: 700;
+}
+
+.app__header-left p {
+  font-size: 0.9rem;
+  opacity: 0.95;
+  margin: 0.2rem 0;
+}
+
+.app_header-left .app_title {
+  font-size: 0.9rem;
+  opacity: 0.95;
+  margin: 0.2rem 0;
+  color: rgb(211, 204, 194);
+  display: block;
+}
+
+.app__header-right {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.app__main {
+  max-width: 1400px;
+  margin: 1.5rem auto;
+  padding: 0 1.5rem;
+}
+
+.app__error {
+  padding: 12px;
+  background: #ffe6e6;
+  color: #660000;
   text-align: center;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
-}
-
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
+/* RESPONSIVE GLOBAL */
+@media (max-width: 768px) {
+  .app__header-content {
+    flex-direction: column;
+    gap: 1rem;
+    text-align: center;
   }
-  to {
-    transform: rotate(360deg);
+  .app__header-left h1 {
+    font-size: 1.5rem;
   }
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
+@media (max-width: 480px) {
+  .app__main {
+    padding: 0 1rem;
   }
-}
-
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
 }
