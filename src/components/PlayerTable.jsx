@@ -1,51 +1,72 @@
 import React from 'react';
+import PlayerRow from './PlayerRow';
 import '../styles/PlayerTable.css';
 
-function PlayerTable({ players, onSort, rowColors, favorites, onToggleFavorite, onRowClick }) {
+const PlayerTable = ({ 
+  players, 
+  onSort, 
+  rowColors, 
+  favorites, 
+  onToggleFavorite, 
+  onRowClick,
+  darkMode 
+}) => {
+  
   if (!players || players.length === 0) {
-    return React.createElement('div', { className: 'player-table-empty' }, 'No hay jugadores para mostrar');
+    return <div className="empty-state">No hay jugadores para mostrar</div>;
   }
 
-  var columns = ['nombre', 'club', 'posicion', 'pais', 'edad', 'goles', 'asistencias', 'rating'];
+  const columns = [
+    { label: 'JUGADOR', key: 'name' },
+    { label: 'CLUB', key: 'club' },
+    { label: 'POSICIÓN', key: 'position' },
+    { label: 'PAÍS', key: 'country' },
+    { label: 'EDAD', key: 'age' },
+    { label: 'GOLES', key: 'goals' },
+    { label: 'ASIST', key: 'assists' },
+    { label: 'RATING', key: 'rating' },
+  ];
 
   return (
-    React.createElement('div', { className: 'player-table-container' },
-      React.createElement('table', { className: 'player-table' },
-        React.createElement('thead', null,
-          React.createElement('tr', null,
-            React.createElement('th', { 'data-index': '0' }, 'FAV'),
-            columns.map(function(col, idx) {
-              return React.createElement('th', { key: col, onClick: function() { onSort(col); }, className: 'sortable', 'data-index': String(idx + 1) }, col.toUpperCase());
-            })
-          )
-        ),
-        React.createElement('tbody', null,
-          players.map(function(player, idx) {
-            var rowClass = '';
-            if (rowColors === 'pares' && idx % 2 === 0) rowClass = 'row-colored';
-            if (rowColors === 'impares' && idx % 2 !== 0) rowClass = 'row-colored';
-            
-            return React.createElement('tr', { key: player.id, className: rowClass, onClick: function() { onRowClick(player); } },
-              React.createElement('td', null,
-                React.createElement('button', {
-                  className: 'favorite-btn ' + (favorites.includes(player.id) ? 'active' : ''),
-                  onClick: function(e) { e.stopPropagation(); onToggleFavorite(player.id); }
-                }, '⭐')
-              ),
-              React.createElement('td', null, player.nombre),
-              React.createElement('td', null, player.club),
-              React.createElement('td', null, player.posicion),
-              React.createElement('td', null, player.pais),
-              React.createElement('td', null, player.edad),
-              React.createElement('td', null, player.goles),
-              React.createElement('td', null, player.asistencias),
-              React.createElement('td', null, player.rating)
+    <div className="table-wrapper">
+      <table className="player-table">
+        <thead>
+          <tr>
+            <th width="50">FAV</th>
+            {columns.map((col) => (
+              <th 
+                key={col.key} 
+                onClick={() => onSort(col.key)} 
+                className="sortable"
+              >
+                {col.label} ↕
+              </th>
+            ))}
+          </tr>
+        </thead>
+        <tbody>
+          {players.map((player, idx) => {
+            // Lógica de coloreo (Pares/Impares)
+            let colorClass = '';
+            if (rowColors === 'pares' && idx % 2 === 0) colorClass = 'row-highlight';
+            if (rowColors === 'impares' && idx % 2 !== 0) colorClass = 'row-highlight';
+
+            return (
+              <PlayerRow
+                key={player.id}
+                player={player}
+                isFavorite={favorites.includes(player.id)}
+                onToggleFavorite={onToggleFavorite}
+                onClick={onRowClick}
+                colorClass={colorClass}
+                darkMode={darkMode}
+              />
             );
-          })
-        )
-      )
-    )
+          })}
+        </tbody>
+      </table>
+    </div>
   );
-}
+};
 
 export default PlayerTable;
