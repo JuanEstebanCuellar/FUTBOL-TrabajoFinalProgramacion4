@@ -11,7 +11,7 @@ const PlayerRow = ({
   colorClass 
 }) => {
   const handleFavoriteClick = (e) => {
-    e.stopPropagation();
+    e.stopPropagation(); // Evita que se abra el modal al dar click en la estrella
     onToggleFavorite(player.id);
   };
 

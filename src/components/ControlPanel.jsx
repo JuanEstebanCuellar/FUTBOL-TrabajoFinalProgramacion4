@@ -6,8 +6,6 @@ function ControlPanel({
     onRowColorsChange,
     showFavoritesOnly,
     onShowFavoritesOnlyChange,
-    darkMode,
-    onDarkModeToggle
 }) {
     return (
         <div className="control-panel">
@@ -34,12 +32,6 @@ function ControlPanel({
             </div>
             <div className="control-panel__section">
                 <label>
-                    <input
-                        type="checkbox"
-                        checked={darkMode}
-                        onChange={(e) => onDarkModeToggle(e.target.checked)}
-                    />
-                    Modo oscuro
                 </label>
             </div>
         </div>

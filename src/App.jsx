@@ -209,7 +209,11 @@ function App() {
       React.createElement('main', { className: 'app__main' },
         React.createElement('div', { className: 'search-section' },
           React.createElement('h3', { className: 'search-section-title' }, 'BUSCAR JUGADORES'),
-          React.createElement(SearchBar, { searchTerm: searchTerm, setSearchTerm: setSearchTerm })
+          React.createElement(SearchBar, { searchTerm: searchTerm, setSearchTerm: setSearchTerm }),
+          React.createElement(SearchHistory, {
+            searchHistory: searchHistory,
+            onSelectHistory: function(term) { setSearchTerm(term); }
+          })
         ),
 
         React.createElement(ControlPanel, { 
