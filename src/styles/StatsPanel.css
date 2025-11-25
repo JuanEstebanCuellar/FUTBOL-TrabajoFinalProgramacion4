@@ -75,6 +75,9 @@
 
 .stat-scorer-goals { font-size: 0.9rem; color: #ccc; }
 
-@media (max-width: 900px) {
-  .stats-dashboard { grid-template-columns: 1fr 1fr; }
+/* RESPONSIVE STATS PANEL */
+@media (max-width: 768px) {
+  .stats-dashboard {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }

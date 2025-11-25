@@ -6,6 +6,7 @@ import Modal from './components/Modal';
 import ThemeToggle from './components/ThemeToggle';
 import SearchHistory from './components/SearchHistory';
 import ControlPanel from './components/ControlPanel';
+import StatsPanel from './components/StatsPanel';
 
 // IMPORTANTE: Cambio de ruta al nuevo archivo CSS global
 import './App.css'; 
@@ -225,6 +226,8 @@ function App() {
           setSearchHistory: setSearchHistory,
           setSearchTerm: setSearchTerm
         }),
+
+        React.createElement(StatsPanel, { stats: stats, favoritesCount: favorites.length }), // <-- agregado
 
         React.createElement(PlayerTable, {
           players: currentPlayers,
