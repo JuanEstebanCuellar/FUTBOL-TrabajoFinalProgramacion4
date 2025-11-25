@@ -1,107 +1,82 @@
-.player-table-container {
-  width: 100%;
-  max-width: 100%;
-  margin: 0 auto;
-  padding: 0;
-  box-sizing: border-box;
-  background: white;
-  border-radius: 8px;
+.table-wrapper {
+  background: #1e1e1e;
+  border-radius: 12px;
   overflow: hidden;
-  box-shadow: 0 10px 10px rgba(255, 140, 63, 0.823);
-  margin-bottom: 1.5rem;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+  margin-top: 2rem;
+  border: 1px solid #333;
+  width: 100%;
   overflow-x: auto;
 }
 
 .player-table {
   width: 100%;
-  table-layout: auto; /* o fixed si prefieres columnas uniformes */
   border-collapse: collapse;
   font-size: 0.9rem;
+  min-width: 800px;
 }
 
+/* --- ENCABEZADO --- */
 .player-table thead {
-  background: var(--dark-gray);
-  color: white;
-  font-weight: 700;
+  background-color: #1a1a1a; /* Fondo oscuro para el header */
 }
 
 .player-table th {
-  padding: 1rem 0.8rem;
+  padding: 18px 20px;
   text-align: left;
-  font-size: 0.8rem;
-  letter-spacing: 0.5px;
+  font-size: 0.75rem;
+  color: #ffffff; /* Texto blanco */
+  font-weight: 800;
   text-transform: uppercase;
-  border-bottom: 3px solid var(--yellow);
+  letter-spacing: 1px;
+  border-bottom: 1px solid #333;
   cursor: pointer;
-  user-select: none;
-  transition: background 0.3s;
-  position: relative;
+  transition: background 0.2s;
 }
 
-.player-table th:hover.sortable {
-  background: rgba(255, 140, 66, 0.2);
+/* Estilo para el indicador de ordenamiento (las flechitas amarillas en la imagen) */
+.player-table th::after {
+  content: '↕'; 
+  display: inline-block;
+  margin-left: 8px;
+  color: #ffc107; /* Amarillo */
+  background: rgba(255, 193, 7, 0.1);
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 0.7rem;
 }
 
-.player-table td {
-  padding: 0.95rem 0.8rem;
-  border-bottom: 1px solid #eee;
-  color: var(--text-dark);
+.player-table th:first-child::after {
+  content: none; /* Quitar flecha en la columna de favoritos */
 }
 
+.player-table th:hover {
+  background-color: #252525;
+}
+
+/* --- CUERPO (Filas Blancas) --- */
 .player-table tbody tr {
-  transition: all 0.3s;
-  cursor: pointer;
-  background: transparent;
+  background-color: #ffffff; /* Fondo BLANCO como en la imagen */
+  border-bottom: 1px solid #f0f0f0;
+  transition: background 0.2s;
 }
 
 .player-table tbody tr:hover {
-  background: #f9f9f9;
+  background-color: #f8f9fa; /* Gris muy suave al pasar el mouse */
 }
 
-.row-colored {
-  background: rgba(255, 140, 66, 0.08);
+/* Estado Vacío */
+.empty-state {
+  text-align: center;
+  padding: 60px;
+  color: #888;
+  font-size: 1.2rem;
+  background: #1e1e1e;
+  border-radius: 12px;
+  border: 1px solid #333;
 }
 
-/* RESPONSIVE TABLE */
-@media (max-width: 480px) {
-  .player-table {
-    font-size: 0.8rem;
-  }
-  .player-table th,
-  .player-table td {
-    padding: 0.6rem 0.4rem;
-  }
-}
-
-.favorite-btn {
-  background: none;
-  border: 2px solid #e08f24;
-  color: #ddd;
-  padding: 0.3rem 0.5rem;
-  border-radius: 4px;
-  cursor: pointer;
-  font-size: 1rem;
-  transition: all 0.3s;
-}
-
-.favorite-btn:hover {
-  border-color: var(--primary-orange);
-  color: var(--primary-orange);
-}
-
-.favorite-btn.active {
-  background: var(--primary-orange);
-  border-color: var(--primary-orange);
-  color: white;
-}
-
-/* RESPONSIVE TABLE */
-@media (max-width: 480px) {
-  .player-table {
-    font-size: 0.8rem;
-  }
-  .player-table th,
-  .player-table td {
-    padding: 0.6rem 0.4rem;
-  }
+/* Coloreo de filas (Pares/Impares) - Naranja suave */
+.row-highlight {
+  background-color: #fff3e0 !important; 
 }
