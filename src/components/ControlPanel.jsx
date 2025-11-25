@@ -1,40 +1,42 @@
-import React from "react";
+import React from 'react';
 import '../styles/ControlPanel.css';
 
-function ControlPanel({
-    rowColors,
-    onRowColorsChange,
-    showFavoritesOnly,
-    onShowFavoritesOnlyChange,
-}) {
-    return (
-        <div className="control-panel">
-            <div className="control-panel__section">
-                <label>Colorear filas:</label>
-                <select
-                    value={rowColors}
-                    onChange={(e) => onRowColorsChange(e.target.value)}
-                >
-                    <option value="ninguno">Ninguno</option>
-                    <option value="pares">Pares</option>
-                    <option value="impares">Impares</option>
-                </select>
-            </div>
-            <div className="control-panel__section">
-                <label>
-                    <input
-                        type="checkbox"
-                        checked={showFavoritesOnly}
-                        onChange={(e) => onShowFavoritesOnlyChange(e.target.checked)}
-                    />
-                    Mostrar solo favoritos
-                </label>
-            </div>
-            <div className="control-panel__section">
-                <label>
-                </label>
-            </div>
-        </div>
-    );
-}
+const ControlPanel = ({ rowColors, setRowColors, showOnlyFavorites, setShowOnlyFavorites }) => {
+  return (
+    <div className="control-bar">
+      <div className="control-left">
+        <button 
+          className={`btn-pill ${rowColors === 'pares' ? 'active' : ''}`}
+          onClick={() => setRowColors(rowColors === 'pares' ? 'none' : 'pares')}
+        >
+          Pintar filas pares
+        </button>
+        <button 
+          className={`btn-pill ${rowColors === 'impares' ? 'active' : ''}`}
+          onClick={() => setRowColors(rowColors === 'impares' ? 'none' : 'impares')}
+        >
+          Pintar filas impares
+        </button>
+        <button 
+          className="btn-pill outline"
+          onClick={() => setRowColors('none')}
+        >
+          Limpiar color
+        </button>
+      </div>
+
+      <div className="control-right">
+        <label className="checkbox-label">
+          <input 
+            type="checkbox" 
+            checked={showOnlyFavorites}
+            onChange={() => setShowOnlyFavorites(!showOnlyFavorites)}
+          />
+          Mostrar solo favoritos
+        </label>
+      </div>
+    </div>
+  );
+};
+
 export default ControlPanel;
