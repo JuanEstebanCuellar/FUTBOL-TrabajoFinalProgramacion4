@@ -191,69 +191,75 @@ function App() {
   }, []);
 
   return (
-    React.createElement('div', { className: 'app ' + (darkMode ? 'app--dark' : '') },
-      React.createElement('header', { className: 'app__header' },
-        React.createElement('div', { className: 'app__header-content' },
-          React.createElement('div', { className: 'app__header-left' },
-            React.createElement('p1', { className: 'app__title' }, 'TOP CLUB SOCCER'),
-            React.createElement('h1', { className: 'app__subtitle' }, 'Dashboard de Jugadores'),
-            React.createElement('p', { className: 'app__description' }, 'Gestiona tus estrellas favoritas, analiza estadísticas y descubre talentos.')
-          ),
-          React.createElement('div', { className: 'app__header-right' },
-            React.createElement(ThemeToggle, { darkMode: darkMode, onToggle: setDarkMode }),
-          )
-        )
-      ),
+    <div className="app-wrapper">
+      <div className="app-content">
+        <header className="app__header">
+          <div className="app__header-content">
+            <div className="app__header-left">
+              <p1 className="app__title">TOP CLUB SOCCER</p1>
+              <h1 className="app__subtitle">Dashboard de Jugadores</h1>
+              <p className="app__description">Gestiona tus estrellas favoritas, analiza estadísticas y descubre talentos.</p>
+            </div>
+            <div className="app__header-right">
+              <ThemeToggle darkMode={darkMode} onToggle={setDarkMode} />
+            </div>
+          </div>
+        </header>
 
-      !Array.isArray(players) || players.length === 0 ? React.createElement('div', { className: 'app__error', style: { padding: 12, background: '#ffe6e6', color: '#660000', textAlign: 'center' } }, 'No se pudieron cargar los datos de jugadores.') : null,
+        {!Array.isArray(players) || players.length === 0 ? (
+          <div className="app__error" style={{ padding: 12, background: '#ffe6e6', color: '#660000', textAlign: 'center' }}>
+            No se pudieron cargar los datos de jugadores.
+          </div>
+        ) : null}
 
-      React.createElement('main', { className: 'app__main' },
-        React.createElement('div', { className: 'search-section' },
-          React.createElement('h3', { className: 'search-section-title' }, 'BUSCAR JUGADORES'),
-          React.createElement(SearchBar, { searchTerm: searchTerm, setSearchTerm: setSearchTerm }),
-          React.createElement(SearchHistory, {
-            searchHistory: searchHistory,
-            onSelectHistory: function(term) { setSearchTerm(term); }
-          })
-        ),
+        <main className="app__main">
+          <div className="search-section">
+            <h3 className="search-section-title">BUSCAR JUGADORES</h3>
+            <SearchBar searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
+            <SearchHistory
+              searchHistory={searchHistory}
+              onSelectHistory={function(term) { setSearchTerm(term); }}
+            />
+          </div>
 
-        React.createElement(ControlPanel, { 
-          stats: stats, 
-          favorites: favorites, 
-          rowColors: rowColors, 
-          setRowColors: setRowColors,
-          searchHistory: searchHistory,
-          setSearchHistory: setSearchHistory,
-          setSearchTerm: setSearchTerm
-        }),
+          <ControlPanel
+            stats={stats}
+            favorites={favorites}
+            rowColors={rowColors}
+            setRowColors={setRowColors}
+            searchHistory={searchHistory}
+            setSearchHistory={setSearchHistory}
+            setSearchTerm={setSearchTerm}
+          />
 
-        React.createElement(StatsPanel, { stats: stats, favoritesCount: favorites.length }), // <-- agregado
+          <StatsPanel stats={stats} favoritesCount={favorites.length} />
 
-        React.createElement(PlayerTable, {
-          players: currentPlayers,
-          onSort: handleSort,
-          rowColors: rowColors,
-          favorites: favorites,
-          onToggleFavorite: handleToggleFavorite,
-          onRowClick: handleRowClick
-        }),
+          <PlayerTable
+            players={currentPlayers}
+            onSort={handleSort}
+            rowColors={rowColors}
+            favorites={favorites}
+            onToggleFavorite={handleToggleFavorite}
+            onRowClick={handleRowClick}
+          />
 
-        React.createElement(Pagination, {
-          currentPage: currentPage,
-          totalPages: totalPages,
-          onPageChange: setCurrentPage,
-          itemsPerPage: itemsPerPage,
-          onItemsPerPageChange: setItemsPerPage
-        })
-      ),
+          <Pagination
+            currentPage={currentPage}
+            totalPages={totalPages}
+            onPageChange={setCurrentPage}
+            itemsPerPage={itemsPerPage}
+            onItemsPerPageChange={setItemsPerPage}
+          />
+        </main>
 
-      React.createElement(Modal, {
-        isOpen: isModalOpen,
-        onClose: function() { setIsModalOpen(false); },
-        player: selectedPlayer,
-        darkMode: darkMode
-      })
-    )
+        <Modal
+          isOpen={isModalOpen}
+          onClose={function() { setIsModalOpen(false); }}
+          player={selectedPlayer}
+          darkMode={darkMode}
+        />
+      </div>
+    </div>
   );
 }
 

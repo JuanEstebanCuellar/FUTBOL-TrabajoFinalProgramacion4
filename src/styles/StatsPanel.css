@@ -1,18 +1,17 @@
 .stats-dashboard {
   width: 100%;
-  max-width: 100%;
-  margin: 0 auto 1rem;
   display: flex;
   gap: 1rem;
   flex-wrap: wrap;
-  align-items: stretch;
   justify-content: space-between;
+  align-items: stretch;
   box-sizing: border-box;
+  margin: 0;
 }
 
 .stat-card {
-  flex: 1 1 220px; /* crece, pero mantiene un ancho mínimo razonable */
-  min-width: 180px;
+  flex: 1 1 260px; /* crece para ocupar el espacio */
+  min-width: 200px;
   padding: 1.5rem;
   border-radius: 12px;
   display: flex;
