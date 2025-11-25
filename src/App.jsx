@@ -151,23 +151,41 @@ function App() {
   }, [players, debouncedSearch, sortConfig]);
 
   // Estadísticas
-  var stats = useMemo(function() {
-    var total = filteredAndSortedPlayers.length;
-    if (total === 0) return { total: 0, avgAge: 0, avgGoles: 0, topScorer: null };
+  var stats = useMemo(() => {
+    const list = players || [];
+    if (!list || list.length === 0) return null;
 
-    var sumAge = filteredAndSortedPlayers.reduce(function(acc, p) { return acc + (Number(p.edad) || 0); }, 0);
-    var sumGoles = filteredAndSortedPlayers.reduce(function(acc, p) { return acc + (Number(p.goles) || 0); }, 0);
-    var topScorer = filteredAndSortedPlayers.reduce(function(max, p) {
-      return (Number(p.goles) || 0) > (Number(max.goles) || 0) ? p : max;
-    }, filteredAndSortedPlayers[0]);
+    const total = list.length;
+
+    // Helper para leer campos en inglés o español
+    const get = (p, en, es, fallback = null) => p?.[en] ?? p?.[es] ?? fallback;
+
+    // Edades
+    const ages = list
+      .map(p => Number(get(p, 'age', 'edad', NaN)))
+      .filter(n => !Number.isNaN(n));
+    const avgAge = ages.length ? +(ages.reduce((a, b) => a + b, 0) / ages.length).toFixed(1) : 0;
+
+    // Goles
+    const goals = list
+      .map(p => Number(get(p, 'goals', 'goles', 0)))
+      .map(n => (Number.isNaN(n) ? 0 : n));
+    const avgGoles = goals.length ? +(goals.reduce((a, b) => a + b, 0) / goals.length).toFixed(2) : 0;
+
+    // Top scorer
+    const maxGoals = Math.max(...goals);
+    const topIndex = goals.indexOf(maxGoals);
+    const topPlayer = list[topIndex] ?? null;
+    const topName = topPlayer ? (get(topPlayer, 'name', 'nombre', '-')) : '-';
+    const topScorer = topPlayer ? { name: topName, goals: Number(get(topPlayer, 'goals', 'goles', 0)) } : null;
 
     return {
-      total: total,
-      avgAge: (sumAge / total).toFixed(1),
-      avgGoles: (sumGoles / total).toFixed(2),
-      topScorer: topScorer || null
+      total,
+      avgAge,
+      avgGoles,
+      topScorer
     };
-  }, [filteredAndSortedPlayers]);
+  }, [players]); // o [currentPlayers] si quieres usar la lista filtrada/paginada
 
   // Paginación
   var totalPages = Math.ceil(filteredAndSortedPlayers.length / itemsPerPage);
