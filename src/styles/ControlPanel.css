@@ -42,3 +42,14 @@
   align-items: center;
   gap: 8px;
 }
+
+.control-panel {
+  width: 100%;
+  max-width: 100%;
+  margin: 0 auto 1rem;
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  align-items: center;
+  box-sizing: border-box;
+}

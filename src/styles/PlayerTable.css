@@ -1,4 +1,8 @@
 .player-table-container {
+  width: 100%;
+  max-width: 100%;
+  margin: 0 auto; /* centra el contenedor */
+  box-sizing: border-box;
   background: white;
   border-radius: 8px;
   overflow: hidden;

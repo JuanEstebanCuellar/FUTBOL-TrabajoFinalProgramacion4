@@ -97,3 +97,22 @@ body.dark-mode {
     padding: 0 1rem;
   }
 }
+
+.app-wrapper {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center; /* centra horizontalmente el contenido */
+  align-items: flex-start; /* si quieres centrar verticalmente usa 'center' */
+  padding: var(--app-padding);
+  background: var(--app-bg, #fafafa);
+  box-sizing: border-box;
+}
+
+.app-content {
+  width: 100%;
+  max-width: var(--app-max-width);
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}

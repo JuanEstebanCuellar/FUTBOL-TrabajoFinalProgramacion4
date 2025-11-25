@@ -13,6 +13,19 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+:root {
+  --app-max-width: 1200px; /* cambia si quieres otro ancho máximo */
+  --app-padding: 1.5rem;
+}
+
+/* Asegura que la app ocupe toda la pantalla */
+html, body, #root {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 a {
   font-weight: 500;
   color: #646cff;
