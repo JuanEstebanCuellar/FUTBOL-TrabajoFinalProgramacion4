@@ -30,14 +30,13 @@ const PlayerRow = ({
         </button>
       </td>
       
-      {/* CORRECCIÓN CRÍTICA: Propiedades en Inglés para coincidir con players.js */}
-      <td className="player-row__cell font-bold">{player.name}</td>
+      <td className="player-row__cell font-bold">{player.nombre}</td>
       <td className="player-row__cell">{player.club}</td>
-      <td className="player-row__cell">{player.position}</td>
-      <td className="player-row__cell">{player.country}</td>
-      <td className="player-row__cell center">{player.age}</td>
-      <td className="player-row__cell center">{player.goals}</td>
-      <td className="player-row__cell center">{player.assists}</td>
+      <td className="player-row__cell">{player.posicion}</td>
+      <td className="player-row__cell">{player.pais}</td>
+      <td className="player-row__cell center">{player.edad}</td>
+      <td className="player-row__cell center">{player.goles}</td>
+      <td className="player-row__cell center">{player.asistencias}</td>
       <td className="player-row__cell center rating">{player.rating}</td>
     </tr>
   );
