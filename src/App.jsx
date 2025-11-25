@@ -224,6 +224,7 @@ function App() {
             <SearchHistory
               searchHistory={searchHistory}
               onSelectHistory={function(term) { setSearchTerm(term); }}
+              onClear={function() { setSearchHistory([]); }}
             />
           </div>
 
