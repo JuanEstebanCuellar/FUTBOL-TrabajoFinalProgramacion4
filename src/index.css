@@ -21,6 +21,8 @@
   --text-color: #111111;
   --panel-bg: #ffffff;
   --panel-contrast: #f2f2f2;
+  --primary-orange: #ff8c42;
+  --dark-gray: #2a2a2a;
 }
 
 /* Dark theme overrides */
@@ -43,12 +45,17 @@ body.light-mode {
 
 /* Forzar alto completo y box-sizing */
 html, body, #root {
+  width: 100%;
   height: 100%;
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  background: var(--app-bg);
-  color: var(--text-color);
+}
+
+body {
+  background: #0f0f10; /* fondo oscuro sin restricción */
+  color: #e6e6e6;
+  min-height: 100vh;
 }
 
 /* Normalize box-sizing for all elements */
@@ -61,20 +68,6 @@ a {
 }
 a:hover {
   color: #535bf2;
-}
-
-body {
-  margin: 0;
-  display: flex;
-  justify-content: center; /* centra el root horizontalmente */
-  align-items: flex-start;  /* alinea al principio verticalmente */
-  min-width: 320px;
-  min-height: 100vh;
-}
-
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
 }
 
 button {
@@ -107,4 +100,30 @@ button:focus-visible {
   button {
     background-color: #f9f9f9;
   }
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body, #root {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--app-bg);
+  color: var(--text-color);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.6;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+#root {
+  width: 100%;
+  min-height: 100vh;
 }

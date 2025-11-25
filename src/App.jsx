@@ -75,8 +75,13 @@ function App() {
   // Guardar darkMode
   useEffect(function() {
     localStorage.setItem('darkMode', JSON.stringify(darkMode));
-    if (darkMode) document.body.classList.add('dark-mode');
-    else document.body.classList.remove('dark-mode');
+    if (darkMode) {
+      document.body.classList.add('dark-mode');
+      document.body.classList.remove('light-mode');
+    } else {
+      document.body.classList.add('light-mode');
+      document.body.classList.remove('dark-mode');
+    }
   }, [darkMode]);
 
   // Guardar favorites
