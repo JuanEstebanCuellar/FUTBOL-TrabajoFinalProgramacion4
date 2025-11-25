@@ -1,21 +1,38 @@
-import React from "react";
+import React from 'react';
 import '../styles/StatsPanel.css';
 
-function StatsPanel({ players, darkMode }) {
-    if (players.length === 0) return null;
-    const totalPlayers = players.length;
-    const totalGoals = players.reduce((sum, player) => sum + player.goles, 0);
-    const avgRating = (players.reduce((sum, player) => sum + player.rating, 0) / totalPlayers).toFixed(2);
-    const topScorer = players.reduce((top, player) => (player.goles > top.goles ? player : top), players[0]);
+const StatsPanel = ({ stats, favoritesCount }) => {
+  if (!stats) return null;
 
-    return (
-        React.createElement('div', { className: 'stats-panel ' + (darkMode ? 'stats-panel--dark' : '') },
-            React.createElement('h3', null, 'Estadísticas'),
-            React.createElement('p', null, 'Total de jugadores: ' + totalPlayers),
-            React.createElement('p', null, 'Total de goles: ' + totalGoals),
-            React.createElement('p', null, 'Promedio de rating: ' + avgRating),
-            React.createElement('p', null, 'Máximo goleador: ' + topScorer.nombre + ' (' + topScorer.goles + ' goles)')
-        )
-    );
-}
-export default StatsPanel;
+  return (
+    <div className="stats-dashboard">
+      {/* Tarjeta 1: Principal Amarilla */}
+      <div className="stat-card stat-card--primary">
+        <span className="stat-label-dark">JUGADORES EN TABLA</span>
+        <div className="stat-value-big">{stats.total}</div>
+        <div className="stat-pill">Favoritos: {favoritesCount}</div>
+      </div>
+
+      {/* Tarjeta 2: Promedio Edad */}
+      <div className="stat-card stat-card--dark">
+        <span className="stat-label">PROMEDIO DE EDAD</span>
+        <div className="stat-value">{stats.avgAge} <span className="unit">años</span></div>
+      </div>
+
+      {/* Tarjeta 3: Promedio Goles */}
+      <div className="stat-card stat-card--dark">
+        <span className="stat-label">PROMEDIO DE GOLES</span>
+        <div className="stat-value">{stats.avgGoles}</div>
+      </div>
+
+      {/* Tarjeta 4: Goleador */}
+      <div className="stat-card stat-card--dark">
+        <span className="stat-label">MÁXIMO GOLEADOR</span>
+        <div className="stat-scorer-name">{stats.topScorer?.name || '-'}</div>
+        <div className="stat-scorer-goals">{stats.topScorer?.goals || 0} goles</div>
+      </div>
+    </div>
+  );
+};
+
+export default StatsPanel;
