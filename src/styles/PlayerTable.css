@@ -80,3 +80,57 @@
 .row-highlight {
   background-color: #fff3e0 !important; 
 }
+
+/* --- BOTÓN DE FAVORITOS (Forzado en la Tabla) --- */
+
+/* 1. Reseteo total del botón para quitar estilos grises feos */
+button.favorite-btn, 
+button.fav-btn {
+  appearance: none;
+  -webkit-appearance: none;
+  background: transparent !important; /* Fondo transparente por defecto */
+  border: 2px solid #ffc107 !important; /* Borde amarillo siempre */
+  color: #ffc107 !important; /* Estrella amarilla */
+  
+  /* Tamaño y forma */
+  width: 38px;
+  height: 38px;
+  border-radius: 8px;
+  padding: 0;
+  margin: 0 auto;
+  
+  /* Centrado */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+  /* Texto */
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  box-shadow: none;
+}
+
+/* 2. Hover cuando está inactivo (brillo suave) */
+button.favorite-btn:hover,
+button.fav-btn:hover {
+  background-color: rgba(255, 193, 7, 0.15) !important;
+  transform: scale(1.1);
+}
+
+/* 3. ESTADO ACTIVO (Estrella negra sobre fondo amarillo) */
+button.favorite-btn.active,
+button.fav-btn.active {
+  background-color: #ffc107 !important; /* Fondo amarillo sólido */
+  border-color: #ffc107 !important;
+  color: #1a1a1a !important; /* Estrella negra u oscura */
+  box-shadow: 0 0 10px rgba(255, 193, 7, 0.5); /* Resplandor */
+}
+
+/* 4. Hover cuando está activo */
+button.favorite-btn.active:hover,
+button.fav-btn.active:hover {
+  background-color: #e0a800 !important;
+  border-color: #e0a800 !important;
+  transform: scale(1.05);
+}
