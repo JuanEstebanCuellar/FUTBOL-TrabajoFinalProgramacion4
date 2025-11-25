@@ -1,19 +1,50 @@
-.theme-toggle {
-  background: rgba(255, 255, 255, 0.3);
-  border: 2px solid white;
-  color: white;
-  padding: 0.5rem;
-  font-size: 1.2rem;
+.theme-toggle-btn {
+  /* Color de fondo amarillo/naranja exacto de la imagen */
+  background-color: #ffc107; 
+  
+  /* Color del texto (marrón oscuro/negro) para contraste */
+  color: #3e2723; 
+  
+  /* Quitamos bordes por defecto */
+  border: none;
+  
+  /* Tamaño y espaciado para que sea rectangular */
+  padding: 8px 16px;
+  min-width: 140px; /* Ancho mínimo para que quepa el texto */
+  height: 40px;
+  
+  /* Bordes redondeados suaves */
   border-radius: 6px;
-  cursor: pointer;
-  transition: all 0.3s;
-  width: 45px;
-  height: 45px;
+  
+  /* Tipografía */
+  font-weight: 700;
+  font-size: 0.9rem;
+  font-family: inherit;
+  
+  /* Alineación del icono y texto */
   display: flex;
   align-items: center;
   justify-content: center;
+  gap: 8px;
+  
+  /* Cursor y transiciones */
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
 }
 
-.theme-toggle:hover {
-  background: rgba(255, 255, 255, 0.4);
+/* Efecto Hover */
+.theme-toggle-btn:hover {
+  background-color: #ffca2c; /* Un poco más claro al pasar el mouse */
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+}
+
+/* Efecto Click */
+.theme-toggle-btn:active {
+  transform: translateY(0);
+}
+
+.theme-toggle__icon {
+  font-size: 1.1rem;
 }
