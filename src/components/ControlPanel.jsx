@@ -1,7 +1,7 @@
 import React from 'react';
 import '../styles/ControlPanel.css';
 
-const ControlPanel = ({ rowColors, setRowColors, showOnlyFavorites, setShowOnlyFavorites }) => {
+const ControlPanel = ({ rowColors, setRowColors }) => {
   return (
     <div className="control-bar">
       <div className="control-left">
@@ -24,17 +24,7 @@ const ControlPanel = ({ rowColors, setRowColors, showOnlyFavorites, setShowOnlyF
           Limpiar color
         </button>
       </div>
-
-      <div className="control-right">
-        <label className="checkbox-label">
-          <input 
-            type="checkbox" 
-            checked={showOnlyFavorites}
-            onChange={() => setShowOnlyFavorites(!showOnlyFavorites)}
-          />
-          Mostrar solo favoritos
-        </label>
-      </div>
+      
     </div>
   );
 };
